@@ -21,6 +21,7 @@ export default function Channels({
   return (
     <div>
       <div>
+        <h3>All Channels</h3>
         <div>{buttons}</div>
       </div>
     </div>

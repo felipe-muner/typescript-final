@@ -32,7 +32,6 @@ export default function Home({ allChannels }: { allChannels: IChannel[] }) {
 
   return (
     <div>
-      {channel}
       <div className={utilStyles.container}>
         <div className={utilStyles.channel}>
           <Channels channels={allChannels} setChannel={setChannel} />

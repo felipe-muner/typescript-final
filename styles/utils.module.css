@@ -9,12 +9,15 @@
 
 .channel {
   background-color:#DDD;
+  padding:10px;
 }
 
 .messages{
   background-color:#BBB;
+  padding:10px;
 }
 
 .form{
   background-color:#DDD;
+  padding:20px;
 }

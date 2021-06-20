@@ -7,9 +7,12 @@ export default function Messages({
   messages: IMessage[];
   channel: IChannel;
 }) {
+  const description = channel
+    ? "Channel: " + channel + " -  total: " + messages?.length
+    : "No channel selected";
   return (
     <div>
-      <h1>{JSON.stringify(messages)}</h1>
+      <h3>{description}</h3>
       <h1></h1>
       <h1>{JSON.stringify(channel)}</h1>
     </div>
