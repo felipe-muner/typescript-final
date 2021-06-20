@@ -15,6 +15,7 @@ export default function Home({
     id: string
   }[]
 }) {
+  console.log(allPostsData)
   return (
     <Layout home>
       <Head>
@@ -33,7 +34,7 @@ export default function Home({
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                <a>{id}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
