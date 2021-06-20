@@ -9,19 +9,25 @@ import utilStyles from "../styles/utils.module.css";
 import { useState,useEffect } from "react";
 
 export default function Home({ allChannels }: { allChannels: IChannel[] }) {
-  const [loading, setLoading] = useState<Boolean>(false);
+  // const [loading, setLoading] = useState<Boolean>(false);
   const [channel, setChannel] = useState<IChannel>();
   const [messages, setMessages] = useState<IMessage[]>();
   // const user: IFullName = { firstName: "felipe", lastName: "muner" };
   // const myPost: IPost = { id: "filename", body: "body", title: "title" };
   // <ShowDetails user={user} myPost={myPost}></ShowDetails>
 
+  const addMsg = (q: {msg: string}) => {
+    setMessages((prevState: any) => [
+      ...prevState,
+      { msgId: Math.random().toString(), content: q.msg },
+    ]);
+  }
+
   async function getMessagesById() {
-    console.log('vou', channel)
-    setLoading(true)
+    // setLoading(true)
     const filteredList = await Api.message.getMessagesById(channel);
     setMessages(filteredList);
-    setLoading(false)
+    // setLoading(false)
   }
 
   useEffect(() => {
@@ -40,7 +46,7 @@ export default function Home({ allChannels }: { allChannels: IChannel[] }) {
           <Messages channel={channel} messages={messages} />
         </div>
         <div className={utilStyles.form}>
-          <SendMessage channel={channel} />
+          <SendMessage channel={channel} addMsg={addMsg} />
         </div>
       </div>
     </div>
