@@ -5,3 +5,9 @@ export interface IPost {
   title: string
   body: string
 }
+
+export interface IFullName {
+  firstName: string
+  lastName: string
+}
+
