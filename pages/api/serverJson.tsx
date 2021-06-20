@@ -40,11 +40,11 @@ export let msgs: IMessage[] = [
     channelId: 3,
     content: "odel text, and a search for 'lorem i",
   },
-  {
-    msgId: autoIncrement.id++,
-    channelId: 4,
-    content: "ndustry. Lorem Ipsum has been the industry's ",
-  },
+  // {
+  //   msgId: autoIncrement.id++,
+  //   channelId: 4,
+  //   content: "ndustry. Lorem Ipsum has been the industry's ",
+  // },
   {
     msgId: autoIncrement.id++,
     channelId: 1,

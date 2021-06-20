@@ -10,11 +10,19 @@ export default function Messages({
   const description = channel
     ? "Channel: " + channel + " -  total: " + messages?.length
     : "No channel selected";
+
+  const content = (
+    <ul>
+      {messages?.length
+        ? messages.map((m) => <li key={m.msgId}>{m.content}</li>)
+        : ""}
+    </ul>
+  );
+
   return (
     <div>
       <h3>{description}</h3>
-      <h1></h1>
-      <h1>{JSON.stringify(channel)}</h1>
+      <div>{content}</div>
     </div>
   );
 }
