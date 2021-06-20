@@ -11,3 +11,18 @@ export interface IFullName {
   lastName: string
 }
 
+export interface IChannel {
+  id: number,
+  name: string
+}
+
+export interface IMessage {
+  msgId: number
+  channelId: number
+  content: string
+}
+
+export interface ISendMessages {
+  content: string
+}
+
