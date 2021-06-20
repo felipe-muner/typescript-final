@@ -4,23 +4,31 @@ import Channels from "../components/channels";
 import Messages from "../components/messages";
 import SendMessage from "../components/sendMessage";
 import ShowDetails from "../components/showDetails";
-import { IChannel, IFullName, IPost } from "../types/index";
+import { IChannel, IMessage} from "../types/index";
 import Api from "../api";
 import utilStyles from "../styles/utils.module.css";
+import { useState } from "react";
 
 export default function Home({ allChannels }: { allChannels: IChannel[] }) {
+  const [channel, setChannel] = useState<IChannel>();
+  const [messages, setMessages] = useState<IMessage[]>();
   // const user: IFullName = { firstName: "felipe", lastName: "muner" };
   // const myPost: IPost = { id: "filename", body: "body", title: "title" };
-  //   <ShowDetails user={user} myPost={myPost}></ShowDetails>
+  // <ShowDetails user={user} myPost={myPost}></ShowDetails>
 
   return (
     <div>
-      <h1>13</h1>
-      <h1>{JSON.stringify(allChannels)}</h1>
+      {channel}
       <div className={utilStyles.container}>
-        <div>Left div</div>
-        <div>Middle div</div>
-        <div>Right div</div>
+        <div className={utilStyles.channel}>
+          <Channels channels={allChannels} setChannel={setChannel} />
+        </div>
+        <div className={utilStyles.messages}>
+          <Messages channel={channel} messages={messages} />
+        </div>
+        <div className={utilStyles.form}>
+          <SendMessage channel={channel} />
+        </div>
       </div>
     </div>
   );

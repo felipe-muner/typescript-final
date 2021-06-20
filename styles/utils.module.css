@@ -1,6 +1,20 @@
 .container {
   display: flex;
+  padding: 15px;
+  height: 300px;
 }
 .container > div {
   flex: 1; /*grow*/
+}
+
+.channel {
+  background-color:#DDD;
+}
+
+.messages{
+  background-color:#BBB;
+}
+
+.form{
+  background-color:#DDD;
 }
