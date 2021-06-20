@@ -12,7 +12,7 @@ export default function Channels({
       key={c.id.toString()}
       color="primary"
       onClick={() => setChannel(c.id)}
-      style={{ marginRight: "10px" }}
+      style={{ marginLeft: "10px" }}
     >
       {" "}
       {c.name}
