@@ -5,26 +5,20 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import ShowDetails from "../components/showDetails";
-import { IFullName } from "../types/index";
+import { IFullName, IPost } from "../types/index";
 
 import { GetStaticProps } from "next";
 
-export default function Home({
-  allPostsData,
-}: {
-  allPostsData: {
-    date: string;
-    title: string;
-    id: string;
-  }[];
-}) {
+export default function Home({ allPostsData }: { allPostsData: IPost[] }) {
   const user: IFullName = { firstName: "felipe", lastName: "muner" };
+  const myPost: IPost = { id: "filename", body: "body", title: "title" };
+
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <ShowDetails user={user}></ShowDetails>
+      <ShowDetails user={user} myPost={myPost}></ShowDetails>
       <section className={utilStyles.headingMd}>
         <p>[Your Self Introduction]</p>
         <p>
@@ -35,14 +29,14 @@ export default function Home({
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{id}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <Date dateString={id} />
               </small>
             </li>
           ))}

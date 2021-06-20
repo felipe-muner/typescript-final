@@ -1,9 +1,9 @@
 // types/index.ts
 
 export interface IPost {
-  id: number
-  title: string
+  id: string
   body: string
+  title: string
 }
 
 export interface IFullName {
