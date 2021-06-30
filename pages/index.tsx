@@ -10,12 +10,12 @@ import { useState, useEffect } from "react";
 
 export default function Home({ allChannels }: { allChannels: IChannel[] }) {
   const [channel, setChannel] = useState<IChannel>();
-  const [messages, setMessages] = useState<IMessage[]>();
+  const [messages, setMessages] = useState<IMessage[]>([]);
 
   const addMsg = (q: { msg: string }) => {
-    setMessages((prevState: any) => [
+    setMessages((prevState: IMessage[]) => [
       ...prevState,
-      { msgId: Math.random().toString(), content: q.msg },
+      { msgId: Math.random().toString(), channelId: "", content: q.msg },
     ]);
   };
 

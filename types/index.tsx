@@ -17,8 +17,8 @@ export interface IChannel {
 }
 
 export interface IMessage {
-  msgId: number
-  channelId: number
+  msgId: string
+  channelId: string
   content: string
 }
 
